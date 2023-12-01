@@ -7,9 +7,9 @@ logging:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://10.37.32.69:3306/log
-    username: root
-    password: mysql123@bd
+    url: jdbc:mysql://localhost:3306/log
+    username: myuser
+    password: secret
   servlet: # 上传文件，下载文件限制（默认1MB）
     multipart:
       max-file-size: 100MB

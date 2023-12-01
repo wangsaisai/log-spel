@@ -1,6 +1,6 @@
 # 日志
 - 记录操作日志
-- 基于SpEL:Spring Expression Language（link: [SpEL](https://docs.spring.io/spring-framework/docs/3.0.x/reference/expressions.html)
+- 基于SpEL:Spring Expression Language（link: [SpEL](https://docs.spring.io/spring-framework/docs/3.0.x/reference/expressions.html)）
 - 可记录接口耗时(end_time - start_time)
 - 基于java注解方式实现，对业务代码无侵入
 
@@ -10,7 +10,7 @@
 - jdk 17
 
 ### module
-- core：基础类
+- core：基础类库
 - web：使用example
 
 ### 使用方式
