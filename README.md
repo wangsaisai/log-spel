@@ -1,13 +1,13 @@
 # 日志
-记录接口日志
-基于spel，记录日志
-可记录接口耗时(end_time - start_time)
-注解方式实现，对业务无侵入
+- 记录操作日志
+- 基于SpEL:Spring Expression Language（https://docs.spring.io/spring-framework/docs/3.0.x/reference/expressions.html）
+- 可记录接口耗时(end_time - start_time)
+- 基于java注解方式实现，对业务代码无侵入
 
 ### 依赖
 - spring boot 3
+- mybatis plus 3.5.3.1
 - jdk 17
-- mybatis plus
 
 ### module
 - core：基础类
@@ -21,9 +21,9 @@
 @LogRecord(associateIdExpr = "#id", type = LogBizEnum.BIZ1, operation = "ADD")
 @PostMapping("/add")
 public String add(@RequestParam(name = "id") String id) {
-return "hello " + id;
+  return "hello " + id;
 }
 ```
 
-### 执行结果
+### 记录的相关日志
 ![img.png](img.png)
