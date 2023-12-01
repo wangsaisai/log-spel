@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <!-- 使用3.2.0版本，启动报错： java.lang.IllegalArgumentException: Invalid value type for attribute 'factoryBeanObjectType': java.lang.String -->
+        <version>3.1.1</version>
+        <relativePath/>
+    </parent>
+
+    <groupId>com.bamboo</groupId>
+    <artifactId>log-spel</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>log-spel</name>
+    <description>log-spel</description>
+
+    <modules>
+        <module>core</module>
+        <module>web</module>
+    </modules>
+
+    <properties>
+        <java.version>17</java.version>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <excludes>
+                        <exclude>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                        </exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+
+            <!-- 代码格式化插件 -->
+            <plugin>
+                <groupId>com.diffplug.spotless</groupId>
+                <artifactId>spotless-maven-plugin</artifactId>
+                <version>2.21.0</version>
+                <configuration>
+                    <java>
+                        <!-- include all java files in "java" folders under "src" -->
+                        <includes>
+                            <include>src/**/java/**/*.java</include>
+                        </includes>
+                        <removeUnusedImports/>
+                        <googleJavaFormat>
+                            <version>1.7</version>
+                            <style>GOOGLE</style>
+                        </googleJavaFormat>
+                        <importOrder>
+                            <order>\#,org.springframework,com.bytedance,javax,java,scala</order>
+                        </importOrder>
+                    </java>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <repositories>        <!-- 下载mybatis-plus SNAPSHOT 版本所需仓库 -->
+        <repository>
+            <id>ossrh</id>
+            <name>OSS Snapshot repository</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+</project>

@@ -1,0 +1,22 @@
+server:
+  port: 8080
+
+logging:
+  level:
+    root: info
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://10.37.32.69:3306/log
+    username: root
+    password: mysql123@bd
+  servlet: # 上传文件，下载文件限制（默认1MB）
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+  main: # 允许循环依赖
+    allow-circular-references: true
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
